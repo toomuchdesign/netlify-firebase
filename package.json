@@ -5,11 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "netlify dev",
-    "dev": "parcel src/index.html",
+    "build": "npm run build:functions",
+    "build:functions": "netlify-lambda build --config ./webpack.functions.js src/lambda",
     "test": "echo \"No test specified\"",
-    "build": "npm run build:functions && npm run build:client",
-    "build:client": "parcel build src/index.html -d dist/client",
-    "build:functions": "netlify-lambda build src/lambda",
     "format": "prettier --write \"**/*.{js,json,md}\""
   },
   "keywords": [],
@@ -23,7 +21,8 @@
     "prettier": "^1.0.0"
   },
   "dependencies": {
+    "firebase-admin": "^8.12.1",
     "netlify-lambda": "^1.6.3",
-    "parcel-bundler": "^1.12.4"
+    "webpack-node-externals": "^1.7.2"
   }
 }
