@@ -1,0 +1,29 @@
+{
+  "name": "netlify-firebase",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "netlify dev",
+    "dev": "parcel src/index.html",
+    "test": "echo \"No test specified\"",
+    "build": "npm run build:functions && npm run build:client",
+    "build:client": "parcel build src/index.html -d dist/client",
+    "build:functions": "netlify-lambda build src/lambda",
+    "format": "prettier --write \"**/*.{js,json,md}\""
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toomuchdesign/netlify-firebase.git"
+  },
+  "author": "Andrea Carraro <me@andreacarraro.it>",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^1.0.0"
+  },
+  "dependencies": {
+    "netlify-lambda": "^1.6.3",
+    "parcel-bundler": "^1.12.4"
+  }
+}
